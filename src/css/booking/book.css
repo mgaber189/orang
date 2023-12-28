@@ -1,0 +1,52 @@
+.payment-method-img {
+    border: none;
+    cursor: pointer;
+  }
+  
+  .payment-method-img.selected {
+    border: 2px solid #F47732;
+  }
+
+
+    .paytext {
+      position: relative;
+
+      margin-top: 250px !important;
+    }
+.returnn{
+  border: solid 1px #F47732;
+  width: 250px !important;
+  height: 40px !important;
+  align-items: center;
+  text-align: center;
+  color: #F47732; 
+  background-color: white;
+  border-radius: 4px;
+  
+
+}
+.returnn1{
+  border: solid 1px #F47732;
+  width: 220px !important;
+  height: 40px !important;
+  align-items: center;
+  text-align: center;
+  color: rgb(255, 252, 252); 
+  background-color:#F47732;
+  border-radius: 4px;
+  
+
+}
+/* .date-book{
+  width: 500px !important;
+} */
+ .react-datepicker__input-container input {
+  width: 580px ; /* Adjust the width as needed */
+}
+.first-date{
+  width: 150px !important ;
+}
+.payCard{
+  padding: 20px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
+}

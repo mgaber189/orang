@@ -1,0 +1,142 @@
+/* CSS for the container */
+
+.overview-container {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.input-width{
+  margin: 0 auto;
+  width: 110px;
+  height: 40px;
+  align-items: center !important;
+}
+.wish-watch{
+  /* margin-top: -10px; */
+  cursor: pointer;
+  width: 90px !important;
+  height: 50px !important;
+}
+.rating{
+  /* margin-left: 100px; */
+}
+.fa-exclamation{
+  color: red;
+}
+/* CSS for the counter section */
+.counter-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* .counter-item {
+  text-align: center;
+  flex-basis: 45%;
+  
+} */
+
+
+.slider-description {
+  font-size: 18px;
+  color: #fffcfc;
+  margin-bottom: 5px;
+}
+.inputs-bill {
+  width: 150px;
+  margin-left: 60px;
+}
+input.form-control.innn {
+    width:20%;
+    margin-left: 0px !important;
+    /* height: 40px; */
+    /* font-size: 16px; */
+  text-align: right;
+  border: none;
+  background-color: #ffffff; 
+}
+.total-section{
+  border-top: #2c7ae8 1px solid;
+}
+.card-header{
+  border-bottom: #2c7ae8 1px solid;
+}
+i.fa-sharp.fa-solid,
+i.fa-solid.fa-circle-plus {
+  margin-top: 5px;
+  font-size: 25px;
+  color: #1da3dd;
+  cursor: pointer;
+}
+.fa-circle-plus{
+  margin-right: 10px !important;
+}
+.fa-circle-minus{
+  margin-left: -10px !important;
+
+}
+/* CSS for the additional services section */
+.additional-services {
+  margin-bottom: 20px;
+  /* width: 180px; */
+}
+
+/* .additional-service-item {
+  text-align: center;
+  margin-bottom: 20px;
+} */
+
+/* CSS for the terms and conditions section */
+.terms-conditions {
+  margin-bottom: 20px;
+}
+
+.form-check-label {
+  font-size: 14px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* CSS for the total section */
+.total-section {
+  text-align: center;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.book {
+  width: 100%;
+  max-width: 180px;
+  height: 40px;
+  background-color: #e07026;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.book:hover {
+  background-color: #d16020;
+}
+
+.text-primary {
+  color: #1da3dd;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .counter-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .counter-item {
+    margin-bottom: 10px;
+    background-color: #ffffff;
+  }
+}

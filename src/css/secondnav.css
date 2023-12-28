@@ -1,0 +1,19 @@
+.o{
+    color: rgb(0, 0, 0) !important;
+    font-size:larger !important;
+    cursor: pointer;
+  }
+  .o:hover{
+    color: #F47732 !important;
+    border-bottom: solid 0.5px #F47732 !important;
+  }
+  /* .o:focus{
+    color: orange !important;
+    border-bottom: solid 0.5px orange !important;
+  } */
+  .bg{
+  background-color:white !important;
+  z-index: 0;
+  /* height: 100px; */
+ 
+  }

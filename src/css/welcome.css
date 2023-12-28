@@ -1,0 +1,39 @@
+/* .popular-section {
+  margin-top: 80px;
+  margin-bottom: 250px !important;
+} */
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color:#F47732;
+}
+
+.section-description {
+  color: #848484;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+/* Responsive styles using media queries */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 20px;
+  }
+
+  .section-description {
+    font-size: 14px;
+  }
+
+  .top-left,
+  .top-right,
+  .bottom-left {
+    position: static;
+    transform: none;
+  }
+  
+  .row.justify-content-center {
+    justify-content: center;
+  }
+}

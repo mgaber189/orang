@@ -1,0 +1,86 @@
+.rating {
+    color: #F47732;
+  }
+  
+  .orange-star::before {
+    content: "\2605";
+    font-size: 20px;
+  }
+  .start-price {
+    background-color:#FAFAFA;
+    color: #F47732;
+    padding: 5px;
+    opacity: 0.9;
+    border-bottom-right-radius: 10px !important ;
+    text-align: center !important;
+    padding-bottom: 10px;
+    /* font-weight: bold; */
+  }
+  .card-text{
+    margin-bottom: 0px!important;
+  }
+  .start {
+    color: #B3B3B3;
+  }
+  .wishlist-icon {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8px;
+    font-size: 18px;
+  }
+  
+  .top-left {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 110px;
+    height: 66px;
+    
+  }
+  .top-right {
+    position: absolute;
+    top: 5px;
+    right: 10px !important;
+  }
+  
+  .circle {
+    width: 48px;
+    height: auto;
+    border-radius: 50%;
+    background-color: #f7f7f7e9 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .fa-sharp.fa-solid.fa-heart ,.fa-play {
+    font-size: 24px;
+    color: #d81515;
+  }
+  .btn-orange{
+    color: #FAFAFA;
+    border: none;
+    background-color:#F47732;
+    width: 254px !important;
+    height: 46px;
+  }
+  .slick-arrow {
+    /* background-color: rgb(62, 60, 58); */
+    color:#F47732;
+    font-weight: bold;
+    font-size: 16px;
+    /* padding: 10px 15px; */
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .slick-prev {
+    left: -40px;
+  }
+  
+  .slick-next {
+    right: -40px;
+  }
+  

@@ -1,0 +1,88 @@
+.image-gallery {
+    text-align: center;
+  }
+  
+  .filter-bar {
+    margin-bottom: 20px;
+  }
+  
+  .filter-button {
+    padding: 10px 40px;
+    background-color: #FAFAFA;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .filter-button.active {
+    background-color:#F47732;
+    color: #fff;
+  }
+  .image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .card-resturant{
+    width: 100%;
+
+    border-radius: 3% !important;
+    box-shadow: 0 0 5px rgba(209, 151, 25, 0.297);
+
+    height: 368px;
+  }
+
+  
+  .image-item-gallery {
+    width: 279px !important;
+    max-width: 100% !important;
+    height: auto;
+  }
+  .slider-dining{
+    width: 40%;
+    height: 368px;
+  }
+  .slick-arrow {
+display: none !important;
+  }
+  .image-item-wrapper {
+    /* position: relative; */
+    width: 1185px;
+    height: auto;
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .card-title-dining {
+    margin-top: -380px;
+    /* margin-left: ; */
+  }
+.card-text-dining{
+  margin-left: 485px !important;
+  margin-top: 30px !important;
+  z-index: 11;
+  text-align: left;
+}
+ .start-dining{
+  margin-top: 140px !important;
+ }
+ .rating-dining{
+  margin-top: -45px !important; ;
+ }
+  .image-item-wrapper:hover .hover-buttons {
+    opacity: 1;
+  }
+  .icons-dining{
+    margin-left: -20px !important;
+  }
+  
+  .hover-button {
+    background-color: #F47732;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

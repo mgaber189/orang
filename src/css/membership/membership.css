@@ -1,0 +1,80 @@
+.image-card {
+    width: 300px;
+    /* margin: 10px; */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-card .card-body {
+    padding: 10px;
+  }
+  
+  .image-card .card-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .image-card .card-text {
+    font-size: 14px;
+    color: #666;
+  }
+  .card-member{
+    width: 300px !important;
+    height: 175px !important;
+  }
+  /* membership.css */
+
+.membership-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px 4px rgba(226, 221, 216, 0.442);
+  }
+  
+  .membership-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #414141;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    color: #3b3939;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+  }
+  
+  .form-select {
+    cursor: pointer;
+  }
+  
+  .textarea-control {
+    resize: none;
+  }
+  .section-title{
+    font-size: 28px;
+  }
+  .btn-primary {
+    background-color: #F47732;
+    border: none;
+    align-items: center;
+  }
+  
+  .btn-primary:hover {
+    background-color: #768fab;
+  }
+  
+  .card-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  

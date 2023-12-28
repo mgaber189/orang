@@ -1,0 +1,30 @@
+.about-us-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .top-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .orange-bay-image {
+    width: 50%;
+    max-height: 300px;
+  }
+  
+  .description {
+    width: 45%;
+  }
+  
+  .map-image {
+    width: 45%;
+    max-height: 300px;
+  }
+  .facilite{
+    object-fit: cover;
+    max-width: 100%;
+  }

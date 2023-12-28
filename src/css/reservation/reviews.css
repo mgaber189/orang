@@ -1,0 +1,30 @@
+.reviewCard{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 70%;
+}
+.reviewLeftCard{
+    display: flex;
+    /* justify-content: space-between; */
+    width: 20%;
+}
+.reviewLeftCard .imageContainer{
+    margin-right: 40px;
+}
+.cardText {
+    max-width: 80%;
+    overflow-wrap: break-word;
+}
+.cardText p{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+}
+.reviewRightCard{
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    border-bottom: 1px solid black;
+
+}
