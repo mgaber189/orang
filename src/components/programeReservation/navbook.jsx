@@ -8,7 +8,7 @@ import IncludedExcluded from "./include";
 import Overview from "./overview";
 import Programline from "./programline";
 import Reviews from "./reviews";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { instance } from "../../api/axios";
 import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
@@ -32,6 +32,7 @@ export default function Navbook() {
   const book=useContext(BookContext);
   const [additionService, setAdditionService] = useState([]);
   const [reserService, setReserService] = useState([]);
+  const navigate  = useNavigate()
   // console.log(auth)
   const getAddtionService = () => {
     // console.log("dfghjkl");
@@ -176,6 +177,11 @@ export default function Navbook() {
       }).filter(Boolean).join('\n')}`
     );
     setShowQRCode(true);
+    if(auth?.isAuthed){
+      navigate("/booking")
+    }else(
+      navigate("/signin")
+    )
   };
 
   const handleDateChange = (date) => {
@@ -414,11 +420,11 @@ export default function Navbook() {
             })}
             <strong>Total: {total}</strong> <br />
             <div className="text-center mt-4">
-              <Link to="/booking">
+              {/* <Link to="/booking"> */}
                 <button className="book" onClick={handleBookNow}>
                   Book Now
                 </button>
-              </Link>
+              {/* </Link> */}
             </div>
           </div>
           <div className="card-body mt-5 mr-auto children-adult">

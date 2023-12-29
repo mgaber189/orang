@@ -63,7 +63,7 @@ const ImageGallery = () => {
 
   const filteredImages =
     activeFilter === 'All' ? images : images.filter((image) => image.type === activeFilter);
-
+// console.log(filteredImages)
   return (
     <div className="image-gallery">
       <div className="filter-bar">
@@ -158,7 +158,7 @@ const ImageGallery = () => {
                       </p>
                     </span>{" "}
                      <a href="/videos" className='float-right mt-1'> [Video] </a>
-                     <a href="/images" className='float-right mt-1 mr-2'> [images] </a>
+                     <a href="/gallery" className='float-right mt-1 mr-2'> [images] </a>
                       
                     <br /> <br />
                   </div>

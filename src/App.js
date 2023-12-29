@@ -58,8 +58,7 @@ function App() {
     <Route path='/videos' element={<Videos/>} />
     <Route path='/membership' element={<Membership/>} />
     <Route path='/contactus' element={<ContactUs/>} />
-    <Route exact path="/qrbook" element={<FinalBook/>} />
-    
+    <Route exact path="/qrbook" element={<FinalBook/>} /> 
     <Route exact path="/profile" element={<Protectroute><MyProfile/></Protectroute>} />
  </Routes>
  <Footer ></Footer>
