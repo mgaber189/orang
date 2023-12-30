@@ -26,7 +26,7 @@ export default function Home() {
       <br /> 
       <Explore />
       <Membership/>
-      <Activities/>
+      {/* <Activities/> */}
       {/* <RelatedTripsComponent /> */}
       <Sponsors /> 
        

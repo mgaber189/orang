@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../../css/booking/book.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { instance } from "../../api/axios";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
@@ -12,6 +12,7 @@ const PaymentMethod = () => {
   const auth = useContext(AuthContext);
   const [additionService, setAdditionService] = useState([]);
   const [reserService, setReserService] = useState([]);
+  const navigate = useNavigate();
   const getAddtionService = () => {
     instance
       .get("AdditionalServices", {
@@ -57,11 +58,36 @@ const PaymentMethod = () => {
   const handleMethodClick = (method) => {
     setSelectedMethod(method);
   };
-
+  const reservationHandler = () => {
+    instance
+      .post("Reservation", {
+        userId: book?.userId,
+        programId: book?.programId,
+        bookingDate: book?.bookingDate,
+        numberOfChild: book?.numberOfChild,
+        numberOfAdults: book?.numberOfAdults,
+        additionalServices: book?.additionalServices,
+        persons: [
+          {
+            name: "string",
+            email: "string@kkk.com",
+            phone: "01111111111",
+            type: 0,
+          },
+        ],
+      })
+      .then((res) => {
+        console.log(res);
+        navigate("/qrbook");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div>
       <div className="slider-text  ">
-        <h1 className="slider-title mt-5 paytext">Classic Program</h1>
+        <h1 className="slider-title mt-5 paytext">{program?.name}</h1>
       </div>
       <div className="reservation-banner">
         <div className="slider-overrlay-res"></div>
@@ -79,11 +105,11 @@ const PaymentMethod = () => {
             <h2 className="fs-2">{program?.name}</h2>
             <div className="d-flex justify-content-between  fw-bold p-2">
               <p className="fs-5 fw-normal">Adults x {book?.numberOfAdults}</p>
-              <p className="fs-5 fw-normal">{program?.pricePerAdult}EGP</p>
+              <p className="fs-5 fw-normal">{program?.pricePerAdult}USD</p>
             </div>
             <div className="d-flex justify-content-between fw-bold p-2">
               <p className="fs-5 fw-normal">Children x {book?.numberOfChild}</p>
-              <p className="fs-5 fw-normal">{program?.pricePerChild}EGP</p>
+              <p className="fs-5 fw-normal">{program?.pricePerChild}USD</p>
             </div>
             <h2 className="fs-2">Additional Services</h2>
             {book?.additionalServices?.map((serv) => {
@@ -103,7 +129,7 @@ const PaymentMethod = () => {
                     <p className="fs-5 fw-normal">
                       {matchingService.pricePerAdult *
                         (serv?.numberOfChild + serv?.numberOfAdults)}
-                        EGP
+                      USD
                     </p>
                   </div>
                 );
@@ -113,7 +139,7 @@ const PaymentMethod = () => {
             })}
             <div className="d-flex justify-content-between fw-bold p-2 border-top">
               <p className="fs-4 ">Total</p>
-              <p className="fs-4 ">{book?.total} EGP</p>
+              <p className="fs-4 ">{book?.total} USD</p>
             </div>
           </div>
         </div>
@@ -209,14 +235,15 @@ const PaymentMethod = () => {
               </div>
 
               <div className="col-md-6">
-                <Link to="/qrbook">
-                  <button
-                    type="button"
-                    className="returnn1 float-right"
-                    style={{ width: "10px", height: "50px" }}>
-                    Pay
-                  </button>
-                </Link>
+                {/* <Link to="/qrbook"> */}
+                <button
+                  onClick={() => reservationHandler()}
+                  type="button"
+                  className="returnn1 float-right"
+                  style={{ width: "10px", height: "50px" }}>
+                  Pay
+                </button>
+                {/* </Link> */}
               </div>
             </div>
           </div>

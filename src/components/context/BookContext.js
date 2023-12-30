@@ -3,7 +3,7 @@ export const BookContext=createContext();
 const defaultreducer={
     userId: 0,
     programId: 0,
-    bookingDate: "",
+    bookingDate: null,
     numberOfChild: 0,
     numberOfAdults: 0,
     additionalServices: [],

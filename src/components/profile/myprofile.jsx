@@ -227,7 +227,7 @@ const MyProfile = () => {
                   <div className="top-left">
                     <p className="start-price start">
                       Start from <br />
-                      <strong className="start-price"> {wish?.pricePerChild} EGP </strong>
+                      <strong className="start-price"> {wish?.pricePerChild} USD </strong>
                     </p>
                   </div>
                   <div className="top-right">
@@ -239,8 +239,8 @@ const MyProfile = () => {
                     <img src="Mask.png" alt="Image 1" className="card-img-top" />
                     <div className="card-body">
                       <h5 className="text-dark">{wish?.name}</h5>
-                      <p className="card-text text-primary">{wish?.pricePerAdult} EGP Per Person</p>
-                      <p className="card-text text-primary">{wish?.pricePerChild} EGP Per Children</p>
+                      <p className="card-text text-primary">{wish?.pricePerAdult} USD Per Person</p>
+                      <p className="card-text text-primary">{wish?.pricePerChild} USD Per Children</p>
                       <Rating emptySymbol={<IoIosStarOutline  />} fullSymbol={<IoIosStar color="#F47732" />} initialRating={wish?.rate} readonly />
 
                     </div>

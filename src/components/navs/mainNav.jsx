@@ -10,6 +10,7 @@ import arTranslation from '../../translations/ar.json';
 import enTranslation from '../../translations/en.json';
 import { AuthContext } from '../context/AuthContext';
 import logo from "./logo.png"
+import { BookContext } from '../context/BookContext';
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -29,6 +30,7 @@ const MainNavbar = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userName, setUserName] = useState('');
   const auth = useContext(AuthContext)
+  const book = useContext(BookContext)
   useEffect(() => {
     // Check if user data exists in local storage
     // const userData = localStorage.getItem('userData');
@@ -85,7 +87,7 @@ const MainNavbar = () => {
             <Nav className="ml-3">
               <NavDropdown title={t('currency')} id="basic-nav-dropdown" className="nav-dropdown">
                 <NavDropdown.Item className="hh" href="#">
-                  EGP
+                USD
                 </NavDropdown.Item>
                 <NavDropdown.Item className="hh" href="#">
                   {t('USD')}
@@ -145,7 +147,7 @@ const MainNavbar = () => {
               <NavLink as={Link} to="/" className="nav-link o ml-4">
                 {t('Home')}
               </NavLink>
-              <NavLink as={Link} to="/program" className="nav-link o">
+              <NavLink onClick={()=>{book.addBook({ bookingDate: null })}} as={Link} to="/program" className="nav-link o">
                 Programs
               </NavLink>
             

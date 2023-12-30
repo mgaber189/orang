@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Searchbar from "../homepage/searchbar";
 import "../../css/programeReservation/first.css";
 import Navbook from "./navbook";
@@ -7,10 +7,12 @@ import { instance } from "../../api/axios";
 import { toast } from "react-toastify";
 import Rating from "react-rating";
 import { IoIosStar, IoIosStarOutline } from "react-icons/io";
+import { BookContext } from "../context/BookContext";
 
 const Reservation = () => {
   const { id } = useParams();
   const [program, setProgram] = useState();
+  const book = useContext(BookContext)
   const getProgramHandler = () => {
     instance
       .get(`Programs/${id}`)
@@ -67,14 +69,14 @@ const Reservation = () => {
           <div className="col-md-3  image-caption">
             {/* <img src="adults.png" alt="Adults" className="img-fluid" /> */}
             <p className="caption">
-              Adults <br /> <strong className="text-dark">{program?.pricePerAdult}EGP </strong>
+              Adults <br /> <strong className="text-dark">{program?.pricePerAdult}USD </strong>
             </p>
           </div>
           <div className="col-md-3 mr-5  image-caption">
             {/* <img src="children.png" alt="Children" className="img-fluid" /> */}
             <p className="caption text-dark">
               Children aged (4-12){" "}
-              <strong className="text-dark"> {program?.pricePerChild}EGP </strong>{" "}
+              <strong className="text-dark"> {program?.pricePerChild}USD </strong>{" "}
             </p>
           </div>
           <div className="col-md-5  image-caption">

@@ -44,12 +44,11 @@ const Images = () => {
     setSelectedImage(image);
     setShowModal(true);
   };
-
+  console.log(selectedImage)
   // Close the modal
   const handleCloseModal = () => {
     setShowModal(false);
   };
-
   return (
     <div className="image-gallery">
       <div className="filter-bar">
@@ -61,26 +60,26 @@ const Images = () => {
             All
           </button>
           <button
-            className={`filter-button ${activeFilter === 'panoramic' ? 'active' : ''}`}
-            onClick={() => handleFilterClick('panoramic')}
+            className={`filter-button ${activeFilter === 'Panoramic View' ? 'active' : ''}`}
+            onClick={() => handleFilterClick('Panoramic View')}
           >
             Panoramic view
           </button>
           <button
-            className={`filter-button ${activeFilter === 'relax' ? 'active' : ''}`}
-            onClick={() => handleFilterClick('relax')}
+            className={`filter-button ${activeFilter === 'Relax' ? 'active' : ''}`}
+            onClick={() => handleFilterClick('Relax')}
           >
            Relax
           </button>
           <button
-            className={`filter-button ${activeFilter === 'joy' ? 'active' : ''}`}
-            onClick={() => handleFilterClick('joy')}
+            className={`filter-button ${activeFilter === 'Joy and Fun' ? 'active' : ''}`}
+            onClick={() => handleFilterClick('Joy and Fun')}
           >
             Joy & fun 
           </button>
           <button
-            className={`filter-button ${activeFilter === 'dine' ? 'active' : ''}`}
-            onClick={() => handleFilterClick('dine')}
+            className={`filter-button ${activeFilter === 'Dining' ? 'active' : ''}`}
+            onClick={() => handleFilterClick('Dining')}
           >
             Dine 
           </button>
@@ -111,7 +110,7 @@ const Images = () => {
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Body>
           {selectedImage && (
-            <img src={selectedImage.src} alt={selectedImage.type} className="modal-image" />
+            <img src={selectedImage?.photoUrl} alt={selectedImage?.type} className="modal-image" />
           )}
         </Modal.Body>
         <Modal.Footer>

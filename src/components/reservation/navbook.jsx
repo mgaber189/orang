@@ -268,7 +268,7 @@ export default function Navbook() {
                 <h4 className="mb-4">Adttional services</h4>
                 <label htmlFor="boot" className="col-sm-4 col-form-label">
                   <h5>
-                    Boot <br /> (250 EGP)
+                    Boot <br /> (250 USD)
                   </h5>
                   <p className="text-secondary">
                     {" "}
@@ -301,7 +301,7 @@ export default function Navbook() {
                   <h5>
                     {" "}
                     Photo Session <br />
-                    (500EGP)
+                    (500 USD)
                   </h5>
                 </label>
                 <div className="col-sm-6">
@@ -338,7 +338,7 @@ export default function Navbook() {
                       htmlFor="weddingService">
                       <h5>
                         {" "}
-                        Wedding Service <br /> (5000 EGP for package){" "}
+                        Wedding Service <br /> (5000 USD for package){" "}
                       </h5>
                     </label>
                   </div>

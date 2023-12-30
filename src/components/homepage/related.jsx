@@ -82,13 +82,15 @@ const RelatedTripsComponent = () => {
       setShowArrows(true);
     },
   };
-
+  console.log(programs)
   return (
     <div className="container">
-      <h1 className="text-center mb-4"> Programs </h1>
-      <Slider {...sliderSettings}>
-        {programs?.slice(0, 4)?.map((program,index) => {
+      <h1 className="text-center mb-4 "> Programs </h1>
+      {/* <Slider {...sliderSettings}> */}
+      <div className="d-flex justify-content-between flex-wrap">
+        {programs?.slice(0, 4).map((program,index) => {
           return (
+            <>
             <div key={index} className="col-md-4">
               <div
                 className="card border-0"
@@ -98,7 +100,7 @@ const RelatedTripsComponent = () => {
                     Start from <br />
                     <strong className="start-price">
                       {" "}
-                      {program?.pricePerChild} EGP{" "}
+                      {program?.pricePerChild} USD{" "}
                     </strong>
                   </p>
                 </div>
@@ -118,10 +120,10 @@ const RelatedTripsComponent = () => {
                   <div className="card-body">
                     <h5 className="text-dark">{program?.name}</h5>
                     <p className="card-text text-primary">
-                      {program?.pricePerAdult} EGP Per Person
+                      {program?.pricePerAdult} USD Per Person
                     </p>
                     <p className="card-text text-primary ">
-                      {program?.pricePerChild} EGP Per Children
+                      {program?.pricePerChild} USD Per Children
                     </p>
                     <Rating
                       emptySymbol={<IoIosStarOutline />}
@@ -133,9 +135,12 @@ const RelatedTripsComponent = () => {
                 </Link>
               </div>
             </div>
+            </>
+            
           );
         })}
-      </Slider>
+      </div>
+      {/* </Slider> */}
       <div className="row justify-content-center">
         <Link to="./program" className="text-center">
           <button className="btn-orange mb-5">See All</button>

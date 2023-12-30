@@ -61,6 +61,7 @@ const Booking = () => {
   }, []);
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    book.addBook({ bookingDate: date });
   };
   return (
     <div>
@@ -83,11 +84,11 @@ const Booking = () => {
             <h2 className="fs-2">{program?.name}</h2>
             <div className="d-flex justify-content-between  fw-bold p-2">
               <p className="fs-5 fw-normal">Adults x {book?.numberOfAdults}</p>
-              <p className="fs-5 fw-normal">{program?.pricePerAdult}EGP</p>
+              <p className="fs-5 fw-normal">{program?.pricePerAdult}USD</p>
             </div>
             <div className="d-flex justify-content-between fw-bold p-2">
               <p className="fs-5 fw-normal">Children x {book?.numberOfChild}</p>
-              <p className="fs-5 fw-normal">{program?.pricePerChild}EGP</p>
+              <p className="fs-5 fw-normal">{program?.pricePerChild}USD</p>
             </div>
             <h2 className="fs-2">Additional Services</h2>
             {book?.additionalServices?.map((serv) => {
@@ -107,7 +108,7 @@ const Booking = () => {
                     <p className="fs-5 fw-normal">
                       {matchingService.pricePerAdult *
                         (serv?.numberOfChild + serv?.numberOfAdults)}
-                        EGP
+                      USD
                     </p>
                   </div>
                 );
@@ -117,7 +118,7 @@ const Booking = () => {
             })}
             <div className="d-flex justify-content-between fw-bold p-2 border-top">
               <p className="fs-4 ">Total</p>
-              <p className="fs-4 ">{book?.total} EGP</p>
+              <p className="fs-4 ">{book?.total} USD</p>
             </div>
           </div>
         </div>
@@ -135,7 +136,7 @@ const Booking = () => {
                   </div>
                   <DatePicker
                     id="datePicker"
-                    selected={selectedDate}
+                    selected={book.bookingDate}
                     onChange={handleDateChange}
                     className="form-control text-center "
                     dateFormat="dd/MM/yyyy"

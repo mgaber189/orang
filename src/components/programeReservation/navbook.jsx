@@ -151,37 +151,41 @@ export default function Navbook() {
     return acc + serv.count * pricePerPerson;
   }, 0);
   const handleBookNow = () => {
-    book.addBook({
-      userId: auth?.id,
-      programId: id,
-      bookingDate: selectedDate,
-      numberOfChild: children,
-      numberOfAdults: adults,
-      additionalServices: reserService
-        .filter((ser) => ser.count > 0)
-        .map((ser) => ({
-          serviceId: ser.id,
-          numberOfChild: children,
-          numberOfAdults: adults,
-        })),
-        total:total,
-    });
-    // localStorage.setItem("reservationData", JSON.stringify(data));
-    setQRCodeValue(
-      `Date: ${selectedDate}\nAdults: ${adults}\nChildren: ${children}\n${book?.additionalServices?.map((serv) => {
-        const matchingService = additionService.find((servs) => servs?.id === serv?.serviceId);
-        if (matchingService) {
-          return `${matchingService.name} count: ${serv.count}`;
-        }
-        return null;
-      }).filter(Boolean).join('\n')}`
-    );
-    setShowQRCode(true);
-    if(auth?.isAuthed){
-      navigate("/booking")
-    }else(
-      navigate("/signin")
-    )
+    if(adults>=1){
+      book.addBook({
+        userId: auth?.id,
+        programId: id,
+        bookingDate: selectedDate,
+        numberOfChild: children,
+        numberOfAdults: adults,
+        additionalServices: reserService
+          .filter((ser) => ser.count > 0)
+          .map((ser) => ({
+            serviceId: ser.id,
+            numberOfChild: children,
+            numberOfAdults: adults,
+          })),
+          total:total,
+      });
+      // localStorage.setItem("reservationData", JSON.stringify(data));
+      setQRCodeValue(
+        `Date: ${selectedDate}\nAdults: ${adults}\nChildren: ${children}\n${book?.additionalServices?.map((serv) => {
+          const matchingService = additionService.find((servs) => servs?.id === serv?.serviceId);
+          if (matchingService) {
+            return `${matchingService.name} count: ${serv.count}`;
+          }
+          return null;
+        }).filter(Boolean).join('\n')}`
+      );
+      setShowQRCode(true);
+      if(auth?.isAuthed){
+        navigate("/booking")
+      }else(
+        navigate("/signin")
+      )
+    }else{
+      toast.warning("Please put the number of Adults")
+    }
   };
 
   const handleDateChange = (date) => {

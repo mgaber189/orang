@@ -46,7 +46,7 @@ const SignIn = () => {
     if (selectedOption === "company") {
       return <label htmlFor="">Company Email Address</label>;
     } else {
-      return <label htmlFor="">User Name</label>;
+      return <label htmlFor="">E-mail</label>;
     }
   };
 
@@ -83,7 +83,7 @@ const SignIn = () => {
                   <input
                     type="user"
                     className="form-control"
-                    placeholder="user name"
+                    placeholder="E-mail"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                     required

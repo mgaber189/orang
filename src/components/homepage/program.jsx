@@ -37,8 +37,8 @@ export default function Program() {
         <div className="text-container">
           <h5 className="card-title">Classic</h5>
           <br />
-          <p className="card-text">500 EGP Per Person</p>
-          <p className="card-text">250 EGP Per Person</p>
+          <p className="card-text">500 USD Per Person</p>
+          <p className="card-text">250 USD Per Person</p>
           <img src="logo.png" className="logop" alt="logo" />
         </div>
       </div>
@@ -53,8 +53,8 @@ export default function Program() {
         <div className="text-container">
           <h5 className="card-title ">Go Island</h5>
           <br />
-          <p className="card-text">1000 EGP Per Person</p>
-          <p className="card-text">750 EGP Per Children</p>
+          <p className="card-text">1000 USD Per Person</p>
+          <p className="card-text">750 USD Per Children</p>
           <img src="logo.png" className="logop" alt="logo" />
         </div>
       </div>

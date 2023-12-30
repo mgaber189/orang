@@ -1,44 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
 import "../../css/dining/resturants.css";
-import Slider from 'react-slick';
-import {Container} from 'react-bootstrap';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { instance } from '../../api/axios';
+import Slider from "react-slick";
+import { Container } from "react-bootstrap";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { instance } from "../../api/axios";
 
 const ImageGallery = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
-  const [images,setImages]=useState([])
-  const [category,setCategory]=useState("");
-  const getResturants=()=>{
-    instance.get("Dining",{
-      params:{
-        diningCategoryId:category
-      }
-    }).then((res)=>{
-      console.log(res)
-      setImages(res?.data?.data)
-    }).catch((err)=>{
-      
-    })
-  }
-  useEffect(()=>{
-    getResturants()
-  },[category])
-  console.log(images)
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [images, setImages] = useState([]);
+  const [category, setCategory] = useState("");
+  const getResturants = () => {
+    instance
+      .get("Dining", {
+        params: {
+          diningCategoryId: category,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setImages(res?.data?.data);
+      })
+      .catch((err) => {});
+  };
+  useEffect(() => {
+    getResturants();
+  }, [category]);
+  console.log(images);
   const handleFilterClick = (filter) => {
     setCategory(filter);
   };
   const PrevArrow = (props) => (
-    <button {...props} className="slick-arrow slick-prev" onClick={props.onClick}>
-  <i class="fa-sharp fa-solid fa-arrow-left"></i>
+    <button
+      {...props}
+      className="slick-arrow slick-prev"
+      onClick={props.onClick}>
+      <i class="fa-sharp fa-solid fa-arrow-left"></i>
     </button>
   );
   const NextArrow = (props) => (
-    <button {...props} className="slick-arrow slick-next" onClick={props.onClick}>
-          <i class="fa-sharp fa-solid fa-arrow-right"></i>
+    <button
+      {...props}
+      className="slick-arrow slick-next"
+      onClick={props.onClick}>
+      <i class="fa-sharp fa-solid fa-arrow-right"></i>
     </button>
   );
   const settings = {
@@ -60,46 +67,39 @@ const ImageGallery = () => {
   //   { id: 6, type: 'Bars', src: 'bar2.png', title: 'Dolphin Bar ',text:'This particular watering hole is quite the unique experience and Orange Bays pride. Located further down on the island where the ambience is more quite and peacefully situated near to the sea. Instead of standard bar stools our craftsmen have designed swings where you can sip on your cocktails while swaying back and forth removing your stress and worries' },
   // ];
 
-
   const filteredImages =
-    activeFilter === 'All' ? images : images.filter((image) => image.type === activeFilter);
-// console.log(filteredImages)
+    activeFilter === "All"
+      ? images
+      : images.filter((image) => image.type === activeFilter);
+  // console.log(filteredImages)
   return (
     <div className="image-gallery">
       <div className="filter-bar">
         <button
           className={`filter-button ${activeFilter === "" ? "active" : ""}`}
-          onClick={() => handleFilterClick("")}
-        >
+          onClick={() => handleFilterClick("")}>
           All
         </button>
         <button
-          className={`filter-button ${
-            activeFilter === 1 ? "active" : ""
-          }`}
-          onClick={() => handleFilterClick(1)}
-        >
+          className={`filter-button ${activeFilter === 1 ? "active" : ""}`}
+          onClick={() => handleFilterClick(1)}>
           Restaurants
         </button>
         <button
           className={`filter-button ${activeFilter === 2 ? "active" : ""}`}
-          onClick={() => handleFilterClick(2)}
-        >
+          onClick={() => handleFilterClick(2)}>
           Bars
         </button>
         <button
-          className={`filter-button ${
-            activeFilter === 3 ? "active" : ""
-          }`}
-          onClick={() => handleFilterClick(3)}
-        >
+          className={`filter-button ${activeFilter === 3 ? "active" : ""}`}
+          onClick={() => handleFilterClick(3)}>
           Lounges
         </button>
       </div>
 
       <div className="image-grid">
         {filteredImages.map((image) => {
-          return(
+          return (
             <Card key={image.id} className="image-item-wrapper">
               <Slider {...settings} className="slider-dining">
                 <div>
@@ -131,16 +131,16 @@ const ImageGallery = () => {
                   <h2> {image?.name}</h2>
                   <span>
                     {" "}
-                    <div className="rating float-right rating-dining">
+                    {/* <div className="rating float-right rating-dining">
                       {" "}
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
-                    </div>{" "}
+                    </div>{" "} */}
                   </span>
                 </Card.Title>
-  
+
                 {/* <Card.Title>{image.title}</Card.Title> */}
                 <Card.Text className="card-text-dining section-description">
                   <div className="icons-dining">
@@ -157,16 +157,15 @@ const ImageGallery = () => {
                         {image?.foodType}{" "}
                       </p>
                     </span>{" "}
-                     <a href="/videos" className='float-right mt-1'> [Video] </a>
-                     <a href="/gallery" className='float-right mt-1 mr-2'> [images] </a>
-                      
+                    {/* <a href="/videos" className='float-right mt-1'> [Video] </a>
+                     <a href="/gallery" className='float-right mt-1 mr-2'> [images] </a> */}
                     <br /> <br />
                   </div>
                   {image?.description}
                 </Card.Text>
                 <h6 className="text-dark ml-2 start-dining">
                   {" "}
-                  start from 165 EGP/Person{" "}
+                  start from 165 USD/Person{" "}
                 </h6>
                 {/* <div className="hover-buttons">
                   <Link to="/gallery"> 
@@ -178,7 +177,7 @@ const ImageGallery = () => {
                 </div> */}
               </Card.Body>
             </Card>
-          )
+          );
         })}
       </div>
     </div>

@@ -44,11 +44,11 @@ const Reservation = () => {
         <div className="row">
           <div className="col-md-3 ml-4 image-caption">
             <img src="adults.png" alt="Adults" className="img-fluid" />
-            <p className="caption">Adults <br /> <strong className='text-dark'>750EGP </strong></p>
+            <p className="caption">Adults <br /> <strong className='text-dark'>750 USD </strong></p>
           </div>
           <div className="col-md-3 mr-5  image-caption">
             <img src="children.png" alt="Children" className="img-fluid" />
-            <p className="caption text-dark">Children aged (4-12) <strong className='text-dark'> 450EGP </strong>  </p>
+            <p className="caption text-dark">Children aged (4-12) <strong className='text-dark'> 450 USD </strong>  </p>
           </div>
           <div className="col-md-2 mr-5 image-caption">
             <img src="baby.png" alt="Baby" className="img-fluid" />

@@ -78,7 +78,7 @@ const Navs = () => {
         <Nav className="ml-auto">
           <NavDropdown title={t('currency')} id="basic-nav-dropdown" className="nav-dropdown">
             <NavDropdown.Item className="hh" href="#">
-              EGP
+            USD
             </NavDropdown.Item>
             <NavDropdown.Item className="hh" href="#">
               {t('USD')}
