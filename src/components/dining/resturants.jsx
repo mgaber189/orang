@@ -163,10 +163,10 @@ const ImageGallery = () => {
                   </div>
                   {image?.description}
                 </Card.Text>
-                <h6 className="text-dark ml-2 start-dining">
+                {/* <h6 className="text-dark ml-2 start-dining">
                   {" "}
                   start from 165 USD/Person{" "}
-                </h6>
+                </h6> */}
                 {/* <div className="hover-buttons">
                   <Link to="/gallery"> 
                     <button className="hover-button">Images</button>
