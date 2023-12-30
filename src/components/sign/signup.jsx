@@ -22,19 +22,24 @@ const SignUpComponent = () => {
   };
   const handleSignUp = (e) => {
     e.preventDefault();
+  
+    // Create a new FormData object
+    const formData = new FormData();
+  
+    // Append form fields to the FormData object
+    formData.append("UserName", fullName);
+    formData.append("FullName", fullName);
+    formData.append("Phone", phoneNumber);
+    formData.append("UserTypeId", "1"); // Make sure to convert to a string if needed
+    formData.append("Email", email);
+    formData.append("Password", password);
+  
+    // Make the POST request with the FormData
     instance
-      .post("Auth/Register", {
-        params: {
-          UserName: fullName,
-          FullName: fullName,
-          Phone: phoneNumber,
-          UserTypeId: 1,
-          Email: email,
-          Password: password,
-        },
-      })
+      .post("Auth/Register", formData)
       .then((res) => {
-        toast.success("Sign up success")
+        toast.success("Sign up success");
+        // Clear the form fields
         setFullName("");
         setEmail("");
         setPhoneNumber("");
@@ -42,12 +47,10 @@ const SignUpComponent = () => {
         setPassword("");
       })
       .catch((err) => {
-        console.log(err)
-        toast.error("Sign up failed")
+        console.log(err);
+        toast.error("Sign up failed");
       });
-    // Clear the form fields
   };
-
   return (
     <div>
       {/* <SignInSignUp/> */}
