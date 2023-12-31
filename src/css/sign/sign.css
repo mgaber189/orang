@@ -1,7 +1,10 @@
 .sign-in-sign-up {
     position: relative;
   }
-  
+  .hide {
+    display: none !important;
+    opacity: 0 !important;
+}
   .background-image {
     position: absolute;
     top: 0;

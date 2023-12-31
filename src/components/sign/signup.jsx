@@ -64,6 +64,7 @@ const SignUpComponent = () => {
     }
   };
   return (
+    <>
     <div>
       {/* <SignInSignUp/> */}
       <div className="sign-overlay"></div>
@@ -186,6 +187,8 @@ const SignUpComponent = () => {
         </div>
       </div>
     </div>
+
+    </>
   );
 };
 export default SignUpComponent;

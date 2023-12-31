@@ -1,0 +1,4 @@
+.modalElement.classList.add(className) {
+    display: none !important;
+    opacity: 0 !important;
+}

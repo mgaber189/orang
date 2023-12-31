@@ -2,11 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import "../../css/reservation/reservation.css";
 import { instance } from "../../api/axios";
 import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 const Reservations = () => {
   const [view, setView] = useState(1);
   const [reservation, setReservation] = useState([]);
   const auth = useContext(AuthContext);
+  const reservationCancel=(id)=>{
+    instance.delete(`Reservation/${id}`).then((res)=>{
+      toast.success(res.message)
+      getReservationHandler();
+    }).catch((err)=>{
+      console.log(err)
+      toast.warning(err.response.data.message)
+    })
+  }
   const getReservationHandler = () => {
     instance
       .get("Reservation", {
@@ -29,6 +39,7 @@ const Reservations = () => {
   const handleViewChange = (selectedView) => {
     setView(selectedView);
   };
+  console.log(reservation)
   const renderReservations = () => {
     if (view === 1) {
       return (
@@ -77,7 +88,7 @@ const Reservations = () => {
                     <button className="btn-reservation text-white ml-5">
                       Print
                     </button>
-                    <button className="btn-cancelation  text-white float-right">
+                    <button onClick={()=>{reservationCancel(reserv?.reservationId)}} className="btn-cancelation  text-white float-right">
                       Cancel
                     </button>
                   </div>
@@ -135,7 +146,7 @@ const Reservations = () => {
                     <button className="btn-reservation text-white ml-5">
                       Print
                     </button>
-                    <button className="btn-cancelation  text-white float-right">
+                    <button onClick={()=>{reservationCancel(reserv?.reservationId)}} className="btn-cancelation  text-white float-right">
                       Cancel
                     </button>
                   </div>
