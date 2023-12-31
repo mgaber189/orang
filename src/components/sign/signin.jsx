@@ -30,6 +30,7 @@ const SignIn = () => {
       })
       .then((res) => {
         auth.login(res.data)
+        localStorage.setItem("profile", JSON.stringify(res.data.data));
         setUserName("");
         setEmail("");
         setPassword("");

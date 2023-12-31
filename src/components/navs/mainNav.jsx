@@ -31,10 +31,11 @@ const MainNavbar = () => {
   const [userName, setUserName] = useState('');
   const auth = useContext(AuthContext)
   const book = useContext(BookContext)
+  const token=localStorage.getItem("token")
   useEffect(() => {
     // Check if user data exists in local storage
     // const userData = localStorage.getItem('userData');
-    if (auth.isAuthed) {
+    if (token) {
       setLoggedIn(true);
       setUserName(auth.userName);
     }
@@ -89,9 +90,9 @@ const MainNavbar = () => {
                 <NavDropdown.Item className="hh" href="#">
                 USD
                 </NavDropdown.Item>
-                <NavDropdown.Item className="hh" href="#">
+                {/* <NavDropdown.Item className="hh" href="#">
                   {t('USD')}
-                </NavDropdown.Item>
+                </NavDropdown.Item> */}
               </NavDropdown>
 
               <NavDropdown title={t('language')} id="language-dropdown" className="nav-dropdown">
@@ -103,7 +104,7 @@ const MainNavbar = () => {
                 </NavDropdown.Item>
               </NavDropdown>
 
-              {auth.isAuthed ? (
+              {token ? (
                 <NavDropdown
                   title={<><FaUser /> {auth?.fullName}</>}
                   id="profile-dropdown"

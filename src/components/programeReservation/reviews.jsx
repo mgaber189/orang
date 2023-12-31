@@ -11,10 +11,11 @@ import { toast } from "react-toastify";
 export default function Reviews() {
   const {id} = useParams();
   const auth=useContext(AuthContext);
+  const token=localStorage.getItem("token")
   const [reviews,setReviews]=useState([])
   const [textArea,setTextArea]=useState("");
   const postReview=()=>{
-    if(auth?.isAuthed){
+    if(token){
       instance.post("Programs/Reviews",{
           programId:id,
           userId:auth?.id,

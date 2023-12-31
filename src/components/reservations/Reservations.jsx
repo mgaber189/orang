@@ -34,7 +34,6 @@ const Reservations = () => {
       return (
         <div className="container ">
           <p className="slider-title text-center"> Upcoming Reservations </p>
-
           {reservation.map((reserv, index) => (
             <div key={index} className="card reserve-card col-md-12 mb-4">
               <div className="ress">

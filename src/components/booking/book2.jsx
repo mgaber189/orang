@@ -5,6 +5,8 @@ import { instance } from "../../api/axios";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 import { BookContext } from "../context/BookContext";
+import pay2 from "./pay2.PNG"
+
 const PaymentMethod = () => {
   const [selectedMethod, setSelectedMethod] = useState("");
   const book = useContext(BookContext);
@@ -96,7 +98,7 @@ const PaymentMethod = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12 text-center mt-4 mb-4">
-            <img src="pay2.png" alt="Top Image" className="top-image" />
+            <img src={pay2} alt="Top Image" className="top-image" />
           </div>
         </div>
         <div className="col-md-5 float-right">

@@ -44,7 +44,6 @@ const Images = () => {
     setSelectedImage(image);
     setShowModal(true);
   };
-  console.log(selectedImage)
   // Close the modal
   const handleCloseModal = () => {
     setShowModal(false);

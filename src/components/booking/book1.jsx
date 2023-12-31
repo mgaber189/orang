@@ -8,6 +8,7 @@ import { instance } from "../../api/axios";
 import { toast } from "react-toastify";
 import "../../css/booking/book.css";
 import { AuthContext } from "../context/AuthContext";
+import pay1 from "./pay1.PNG"
 const Booking = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const book = useContext(BookContext);
@@ -75,22 +76,22 @@ const Booking = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12 text-center mb-4">
-            <img src="pay1.png" alt="Top Image" className="top-image" />
+            <img src={pay1} alt="Top Image" className="top-image" />
           </div>
         </div>
         <div className="col-md-5 float-right">
           {" "}
           <div className="payCard">
-            <h2 className="fs-2">{program?.name}</h2>
+            <h2 className="fs-3">{program?.name}</h2>
             <div className="d-flex justify-content-between  fw-bold p-2">
               <p className="fs-5 fw-normal">Adults x {book?.numberOfAdults}</p>
-              <p className="fs-5 fw-normal">{program?.pricePerAdult}USD</p>
+              <p className="fs-5 fw-normal">{program?.pricePerAdult} USD</p>
             </div>
             <div className="d-flex justify-content-between fw-bold p-2">
               <p className="fs-5 fw-normal">Children x {book?.numberOfChild}</p>
-              <p className="fs-5 fw-normal">{program?.pricePerChild}USD</p>
+              <p className="fs-5 fw-normal">{program?.pricePerChild} USD</p>
             </div>
-            <h2 className="fs-2">Additional Services</h2>
+            <h2 className="fs-3">Additional Services</h2>
             {book?.additionalServices?.map((serv) => {
               const matchingService = additionService.find(
                 (servs) => servs?.id === serv?.serviceId
@@ -107,7 +108,7 @@ const Booking = () => {
                     </p>
                     <p className="fs-5 fw-normal">
                       {matchingService.pricePerAdult *
-                        (serv?.numberOfChild + serv?.numberOfAdults)}
+                        (serv?.numberOfChild + serv?.numberOfAdults)} {" "}
                       USD
                     </p>
                   </div>
@@ -125,7 +126,7 @@ const Booking = () => {
 
         <div className="col-md-7">
           <div className="row">
-            <div className="col-md-12">
+            {/* <div className="col-md-12"> */}
               <div className="form-group">
                 <label htmlFor="datePicker">Date:</label>
                 <div className="input-group date-book">
@@ -143,9 +144,30 @@ const Booking = () => {
                   />
                 </div>
               </div>
+            {/* </div> */}
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <div className="form-group">
+              <label htmlFor="datePicker">Date:</label>
+                <div className="input-group date-book">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">
+                      <BsCalendar />
+                    </span>
+                  </div>
+                  <DatePicker
+                    calendarClassName="dateWidth"
+                    id="datePicker"
+                    selected={book.bookingDate}
+                    onChange={handleDateChange}
+                    className="form-control text-center "
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-
           <div className="row">
             <div className="col-md-12">
               <div className="form-group">
@@ -156,20 +178,21 @@ const Booking = () => {
           </div>
 
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-12">
               <div className="form-group">
                 <label htmlFor="fullName">Full Name:</label>
                 <input type="text" id="fullName" className="form-control" />
               </div>
             </div>
-            <div className="col-md-6">
+          </div>
+          <div className="row">
+            <div className="col-md-12">
               <div className="form-group">
                 <label htmlFor="phoneNumber">Phone Number:</label>
                 <input type="tel" id="phoneNumber" className="form-control" />
               </div>
             </div>
           </div>
-
           <div className="row">
             <div className="col-md-12">
               <div className="form-group">
@@ -181,7 +204,7 @@ const Booking = () => {
               </div>
             </div>
           </div>
-
+{/* 
           <div className="row">
             <div className="col-md-12">
               <div className="form-check">
@@ -195,11 +218,12 @@ const Booking = () => {
                 </label>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="row mt-4">
-            <div className="col-md-6">
+          <div className="row mt-4 justify-content-evenly">
+            <div className="col-md-4">
               <button
+                onClick={()=>window.history.back()}
                 type="button"
                 style={{ width: "240px", height: "50px" }}
                 className="returnn">
@@ -207,7 +231,7 @@ const Booking = () => {
               </button>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-4">
               <Link to="/payment">
                 <button
                   type="button"

@@ -6,7 +6,9 @@
   .payment-method-img.selected {
     border: 2px solid #F47732;
   }
-
+  .dateWidth{
+    width: 70% !important;
+  }
 
     .paytext {
       position: relative;
@@ -15,7 +17,7 @@
     }
 .returnn{
   border: solid 1px #F47732;
-  width: 250px !important;
+  width: 200px !important;
   height: 40px !important;
   align-items: center;
   text-align: center;
@@ -27,7 +29,7 @@
 }
 .returnn1{
   border: solid 1px #F47732;
-  width: 220px !important;
+  width: 200px !important;
   height: 40px !important;
   align-items: center;
   text-align: center;
@@ -41,7 +43,7 @@
   width: 500px !important;
 } */
  .react-datepicker__input-container input {
-  width: 580px ; /* Adjust the width as needed */
+  width: 325px ; /* Adjust the width as needed */
 }
 .first-date{
   width: 150px !important ;

@@ -53,7 +53,7 @@ export default function Programpage() {
         <div className="slider-overrlay-res"></div>
         <img src="3.jpg" className="bbb" alt="" />
       </div>
-      <div className="container mt-4 d-flex justify-content-between flex-wrap ">
+      <div className="container mt-4 d-flex justify-content-evenly flex-wrap ">
       {programs.map((program) => {
         return (
             <div

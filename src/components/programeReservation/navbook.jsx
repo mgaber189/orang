@@ -21,6 +21,7 @@ export default function Navbook() {
   const [bootCount, setBootCount] = useState(0);
   const [photoSessionCount, setPhotoSessionCount] = useState(0);
   const [weddingService, setWeddingService] = useState(false);
+  const [weddingServiceError,setWeddingServiceError]=useState(false)
   const [showQRCode, setShowQRCode] = useState(false);
   const [showOverview, setShowOverview] = useState(false);
   const [showProgram, setShowProgram] = useState(true);
@@ -33,6 +34,7 @@ export default function Navbook() {
   const [additionService, setAdditionService] = useState([]);
   const [reserService, setReserService] = useState([]);
   const navigate  = useNavigate()
+  const token=localStorage.getItem("token")
   // console.log(auth)
   const getAddtionService = () => {
     // console.log("dfghjkl");
@@ -151,40 +153,45 @@ export default function Navbook() {
     return acc + serv.count * pricePerPerson;
   }, 0);
   const handleBookNow = () => {
-    if(adults>=1){
-      book.addBook({
-        userId: auth?.id,
-        programId: id,
-        bookingDate: selectedDate,
-        numberOfChild: children,
-        numberOfAdults: adults,
-        additionalServices: reserService
-          .filter((ser) => ser.count > 0)
-          .map((ser) => ({
-            serviceId: ser.id,
-            numberOfChild: children,
-            numberOfAdults: adults,
-          })),
-          total:total,
-      });
-      // localStorage.setItem("reservationData", JSON.stringify(data));
-      setQRCodeValue(
-        `Date: ${selectedDate}\nAdults: ${adults}\nChildren: ${children}\n${book?.additionalServices?.map((serv) => {
-          const matchingService = additionService.find((servs) => servs?.id === serv?.serviceId);
-          if (matchingService) {
-            return `${matchingService.name} count: ${serv.count}`;
-          }
-          return null;
-        }).filter(Boolean).join('\n')}`
-      );
-      setShowQRCode(true);
-      if(auth?.isAuthed){
-        navigate("/booking")
-      }else(
-        navigate("/signin")
-      )
+    if(weddingService){
+      setWeddingServiceError(false)
+      if(adults>=1){
+        book.addBook({
+          userId: auth?.id,
+          programId: id,
+          bookingDate: selectedDate,
+          numberOfChild: children,
+          numberOfAdults: adults,
+          additionalServices: reserService
+            .filter((ser) => ser.count > 0)
+            .map((ser) => ({
+              serviceId: ser.id,
+              numberOfChild: children,
+              numberOfAdults: adults,
+            })),
+            total:total,
+        });
+        // localStorage.setItem("reservationData", JSON.stringify(data));
+        setQRCodeValue(
+          `Date: ${selectedDate}\nAdults: ${adults}\nChildren: ${children}\n${book?.additionalServices?.map((serv) => {
+            const matchingService = additionService.find((servs) => servs?.id === serv?.serviceId);
+            if (matchingService) {
+              return `${matchingService.name} count: ${serv.count}`;
+            }
+            return null;
+          }).filter(Boolean).join('\n')}`
+        );
+        setShowQRCode(true);
+        if(token){
+          navigate("/booking")
+        }else(
+          navigate("/signin")
+        )
+      }else{
+        toast.warning("Please put the number of Adults")
+      }
     }else{
-      toast.warning("Please put the number of Adults")
+      setWeddingServiceError(true)
     }
   };
 
@@ -395,6 +402,7 @@ export default function Navbook() {
             <div className="terms-conditions card-header">
               <div className="form-check">
                 <input
+                  required
                   className="form-check-input"
                   type="checkbox"
                   id="weddingService"
@@ -404,7 +412,7 @@ export default function Navbook() {
                 <label className="form-check-label" htmlFor="weddingService">
                   <p className="text-dark"> Terms & Conditions </p>
                 </label>
-                <p className="text-primary">Accept Terms & conditions</p>
+                { weddingServiceError && <p className="text-danger">Accept Terms & conditions</p>}
               </div>
             </div>
           </div>
