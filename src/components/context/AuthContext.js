@@ -11,37 +11,43 @@ const defaultreducer={
     phone: null,
     photoUrl: null,
 };
-const reducer=(state,action)=>{
-    if(action.type==="login"){
-        localStorage.setItem("token",action.data.data.token)
-        return{
-            isAuthed: action.data.data.isAuthed,
-            token: action.data.data.token,
-            id: action.data.data.id,
-            userTypeId: action.data.data.userTypeId,
-            fullName: action.data.data.fullName,
-            email: action.data.data.email,
-            userName: action.data.data.userName,
-            phone: action.data.data.phone,
-            photoUrl: action.data.data.photoUrl,
-        }
+const reducer = (state, action) => {
+    if (action.type === "login") {
+      console.log(action?.data?.token);
+  
+      // Use optional chaining to access nested properties
+      return {
+        isAuthed: action?.data?.isAuthed,
+        token: action?.data?.token,
+        id: action?.data?.id,
+        userTypeId: action?.data?.userTypeId,
+        fullName: action?.data?.fullName,
+        email: action?.data?.email,
+        userName: action?.data?.userName,
+        phone: action?.data?.phone,
+        photoUrl: action?.data?.photoUrl,
+      };
     }
-    if(action.type==="logout"){
-        localStorage.removeItem("token")
-        return{
-            isAuthed: false,
-            token: null,
-            id: null,
-            userTypeId: null,
-            fullName: null,
-            email: null,
-            userName: null,
-            phone: null,
-            photoUrl: null,
-        }
+  
+    if (action.type === "logout") {
+      localStorage.removeItem("token");
+      localStorage.removeItem("profile");
+      return {
+        isAuthed: false,
+        token: null,
+        id: null,
+        userTypeId: null,
+        fullName: null,
+        email: null,
+        userName: null,
+        phone: null,
+        photoUrl: null,
+      };
     }
-
-}
+  
+    // Return the current state for unrecognized actions
+    return state;
+  };
 export  const Authcontextprovider=(props)=>{
     
     const [auth, dispatchAuth]=useReducer(reducer,defaultreducer)

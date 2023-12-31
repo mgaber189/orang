@@ -69,14 +69,7 @@ const PaymentMethod = () => {
         numberOfChild: book?.numberOfChild,
         numberOfAdults: book?.numberOfAdults,
         additionalServices: book?.additionalServices,
-        persons: [
-          {
-            name: "string",
-            email: "string@kkk.com",
-            phone: "01111111111",
-            type: 0,
-          },
-        ],
+        persons:"",
       })
       .then((res) => {
         console.log(res);

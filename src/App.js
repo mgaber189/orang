@@ -31,9 +31,25 @@ import "react-toastify/dist/ReactToastify.css";
 import Protectroute from './components/privateRoute/Protectedroute';
 function App() {
   const auth = useContext(AuthContext)
-  useEffect(()=>{
-    auth.logout();
-  },[])
+  const token=localStorage.getItem("token")
+  
+  const storedProfile = localStorage.getItem("profile");
+  const parsedProfile = JSON.parse(storedProfile);
+  const tokenExists = parsedProfile?.token;
+  const loginHandler=()=>{
+   // Ensure tokenExists, auth.login, auth.logout, and parsedProfile are stable
+    // and do not change on each render.
+  
+    if (tokenExists) {
+      console.log("Token exists...");
+      auth.login(parsedProfile);
+    } else {
+      auth.logout();
+    }
+  }
+  useEffect(() => {
+    loginHandler();
+  }, [tokenExists]); 
   return (
     <>
     <MainNavbar ></MainNavbar>

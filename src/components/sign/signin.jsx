@@ -29,12 +29,17 @@ const SignIn = () => {
         password,
       })
       .then((res) => {
-        auth.login(res.data)
-        localStorage.setItem("profile", JSON.stringify(res.data.data));
+        // auth.login(res.data)
+        localStorage.setItem("profile", JSON.stringify(res?.data?.data));
+        localStorage.setItem("token",res?.data?.data?.token)
+        auth.login(res?.data?.data);
         setUserName("");
         setEmail("");
         setPassword("");
         navigate("/")
+      }).catch((error) => {
+        // Handle error, display an error message to the user, etc.
+        console.error('Sign-in failed:', error);
       });
   };
   const handleOptionChange = (option) => {

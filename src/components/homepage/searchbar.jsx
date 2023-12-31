@@ -13,7 +13,6 @@ const SearchBar = () => {
       setSelectedDate(date);
       book.addBook({ bookingDate: date });
     };
-    console.log(selectedDate,book)
     return (
       <div className="search-bar mt-2">
           <div className="search-bar-overlay mt-3"></div> 

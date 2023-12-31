@@ -96,9 +96,9 @@ const MainNavbar = () => {
               </NavDropdown>
 
               <NavDropdown title={t('language')} id="language-dropdown" className="nav-dropdown">
-                <NavDropdown.Item className="hh" onClick={() => changeLanguage('ar')}>
+                {/* <NavDropdown.Item className="hh" onClick={() => changeLanguage('ar')}>
                   العربية
-                </NavDropdown.Item>
+                </NavDropdown.Item> */}
                 <NavDropdown.Item className="hh" onClick={() => changeLanguage('en')}>
                   English
                 </NavDropdown.Item>

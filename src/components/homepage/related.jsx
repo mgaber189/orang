@@ -23,7 +23,6 @@ const RelatedTripsComponent = () => {
         },
       })
       .then((res) => {
-        console.log(res);
         setPrograms(res?.data?.data);
       })
       .catch((err) => {
@@ -82,7 +81,6 @@ const RelatedTripsComponent = () => {
       setShowArrows(true);
     },
   };
-  console.log(programs)
   return (
     <div className="container">
       <h1 className="text-center mb-4 "> Programs </h1>

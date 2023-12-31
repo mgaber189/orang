@@ -146,28 +146,7 @@ const Booking = () => {
               </div>
             {/* </div> */}
           </div>
-          <div className="row">
-            <div className="col-md-12">
-              <div className="form-group">
-              <label htmlFor="datePicker">Date:</label>
-                <div className="input-group date-book">
-                  <div className="input-group-prepend">
-                    <span className="input-group-text">
-                      <BsCalendar />
-                    </span>
-                  </div>
-                  <DatePicker
-                    calendarClassName="dateWidth"
-                    id="datePicker"
-                    selected={book.bookingDate}
-                    onChange={handleDateChange}
-                    className="form-control text-center "
-                    dateFormat="dd/MM/yyyy"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div className="row">
             <div className="col-md-12">
               <div className="form-group">
