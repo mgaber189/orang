@@ -8,7 +8,7 @@ import { instance } from "../../api/axios";
 import { toast } from "react-toastify";
 import "../../css/booking/book.css";
 import { AuthContext } from "../context/AuthContext";
-import pay1 from "./pay1.PNG"
+import pay1 from "./pay1.PNG";
 const Booking = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const book = useContext(BookContext);
@@ -108,7 +108,7 @@ const Booking = () => {
                     </p>
                     <p className="fs-5 fw-normal">
                       {matchingService.pricePerAdult *
-                        (serv?.numberOfChild + serv?.numberOfAdults)} {" "}
+                        (serv?.numberOfChild + serv?.numberOfAdults)}{" "}
                       USD
                     </p>
                   </div>
@@ -127,23 +127,23 @@ const Booking = () => {
         <div className="col-md-7">
           <div className="row">
             {/* <div className="col-md-12"> */}
-              <div className="form-group">
-                <label htmlFor="datePicker">Date:</label>
-                <div className="input-group date-book">
-                  <div className="input-group-prepend">
-                    <span className="input-group-text">
-                      <BsCalendar />
-                    </span>
-                  </div>
-                  <DatePicker
-                    id="datePicker"
-                    selected={book.bookingDate}
-                    onChange={handleDateChange}
-                    className="form-control text-center "
-                    dateFormat="dd/MM/yyyy"
-                  />
+            <div className="form-group">
+              <label htmlFor="datePicker">Date:</label>
+              <div className="input-group date-book">
+                <div className="input-group-prepend">
+                  <span className="input-group-text">
+                    <BsCalendar />
+                  </span>
                 </div>
+                <DatePicker
+                  id="datePicker"
+                  selected={book.bookingDate}
+                  onChange={handleDateChange}
+                  className="form-control text-center "
+                  dateFormat="dd/MM/yyyy"
+                />
               </div>
+            </div>
             {/* </div> */}
           </div>
 
@@ -183,26 +183,10 @@ const Booking = () => {
               </div>
             </div>
           </div>
-{/* 
-          <div className="row">
-            <div className="col-md-12">
-              <div className="form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="termsCheck"
-                />
-                <label className="form-check-label" htmlFor="termsCheck">
-                  Accept Terms & Conditions
-                </label>
-              </div>
-            </div>
-          </div> */}
-
           <div className="row mt-4 justify-content-evenly">
             <div className="col-md-4">
               <button
-                onClick={()=>window.history.back()}
+                onClick={() => window.history.back()}
                 type="button"
                 style={{ width: "240px", height: "50px" }}
                 className="returnn">

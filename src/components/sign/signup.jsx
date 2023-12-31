@@ -29,7 +29,6 @@ const SignUpComponent = () => {
     if(password===confirmPassword){
       // Create a new FormData object
       const formData = new FormData();
-    
       // Append form fields to the FormData object
       formData.append("UserName", fullName);
       formData.append("FullName", fullName);
@@ -42,7 +41,9 @@ const SignUpComponent = () => {
       instance
         .post("Auth/Register", formData)
         .then((res) => {
-          auth.login(res?.data)
+          localStorage.setItem("profile", JSON.stringify(res?.data?.data));
+          localStorage.setItem("token",res?.data?.data?.token)
+          auth.login(res?.data?.data);
           toast.success("Sign up success");
           // Clear the form fields
           setFullName("");

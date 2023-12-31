@@ -21,7 +21,7 @@ export default function Navbook() {
   const [bootCount, setBootCount] = useState(0);
   const [photoSessionCount, setPhotoSessionCount] = useState(0);
   const [weddingService, setWeddingService] = useState(false);
-  const [weddingServiceError,setWeddingServiceError]=useState(false)
+  const [weddingServiceError, setWeddingServiceError] = useState(false);
   const [showQRCode, setShowQRCode] = useState(false);
   const [showOverview, setShowOverview] = useState(false);
   const [showProgram, setShowProgram] = useState(true);
@@ -30,11 +30,11 @@ export default function Navbook() {
   const { id } = useParams();
   const [program, setProgram] = useState();
   const auth = useContext(AuthContext);
-  const book=useContext(BookContext);
+  const book = useContext(BookContext);
   const [additionService, setAdditionService] = useState([]);
   const [reserService, setReserService] = useState([]);
-  const navigate  = useNavigate()
-  const token=localStorage.getItem("token")
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
   // console.log(auth)
   const getAddtionService = () => {
     // console.log("dfghjkl");
@@ -145,17 +145,17 @@ export default function Navbook() {
     }
   };
   const total =
-  adults * program?.pricePerAdult +
-  children * program?.pricePerChild +
-  reserService.reduce((acc, serv) => {
-    // Check if the service is for adults or children
-    const pricePerPerson = serv.pricePerAdult;
-    return acc + serv.count * pricePerPerson;
-  }, 0);
+    adults * program?.pricePerAdult +
+    children * program?.pricePerChild +
+    reserService.reduce((acc, serv) => {
+      // Check if the service is for adults or children
+      const pricePerPerson = serv.pricePerAdult;
+      return acc + serv.count * pricePerPerson;
+    }, 0);
   const handleBookNow = () => {
-    if(weddingService){
-      setWeddingServiceError(false)
-      if(adults>=1){
+    if (weddingService) {
+      setWeddingServiceError(false);
+      if (adults >= 1) {
         book.addBook({
           userId: auth?.id,
           programId: id,
@@ -169,29 +169,32 @@ export default function Navbook() {
               numberOfChild: children,
               numberOfAdults: adults,
             })),
-            total:total,
+          total: total,
         });
         // localStorage.setItem("reservationData", JSON.stringify(data));
         setQRCodeValue(
-          `Date: ${selectedDate}\nAdults: ${adults}\nChildren: ${children}\n${book?.additionalServices?.map((serv) => {
-            const matchingService = additionService.find((servs) => servs?.id === serv?.serviceId);
-            if (matchingService) {
-              return `${matchingService.name} count: ${serv.count}`;
-            }
-            return null;
-          }).filter(Boolean).join('\n')}`
+          `Date: ${selectedDate}\nAdults: ${adults}\nChildren: ${children}\n${book?.additionalServices
+            ?.map((serv) => {
+              const matchingService = additionService.find(
+                (servs) => servs?.id === serv?.serviceId
+              );
+              if (matchingService) {
+                return `${matchingService.name} count: ${serv.count}`;
+              }
+              return null;
+            })
+            .filter(Boolean)
+            .join("\n")}`
         );
         setShowQRCode(true);
-        if(token){
-          navigate("/booking")
-        }else(
-          navigate("/signin")
-        )
-      }else{
-        toast.warning("Please put the number of Adults")
+        if (token) {
+          navigate("/booking");
+        } else navigate("/signin");
+      } else {
+        toast.warning("Please put the number of Adults");
       }
-    }else{
-      setWeddingServiceError(true)
+    } else {
+      setWeddingServiceError(true);
     }
   };
 
@@ -225,7 +228,7 @@ export default function Navbook() {
     // Simulate a click on the link to trigger the download
     link.click();
   };
-
+  console.log(reserService);
   return (
     <div className="container mt-3">
       <div className="row">
@@ -412,30 +415,42 @@ export default function Navbook() {
                 <label className="form-check-label" htmlFor="weddingService">
                   <p className="text-dark"> Terms & Conditions </p>
                 </label>
-                { weddingServiceError && <p className="text-danger">Accept Terms & conditions</p>}
+                {weddingServiceError && (
+                  <p className="text-danger">Accept Terms & conditions</p>
+                )}
               </div>
             </div>
           </div>
 
           <div className="mt-4">
-            <strong>Adults x {adults}</strong> <br />
-            <strong>Children x {children}</strong> <br />
+            <div className="d-flex justify-content-between  fw-bold p-2">
+              <strong>Adults x {adults}</strong>
+              <strong>{program?.pricePerAdult} USD</strong>
+            </div>
+            <div className="d-flex justify-content-between  fw-bold p-2">
+              <strong>Children x {children}</strong>
+              <strong>{program?.pricePerChild} USD</strong>
+            </div>
             {reserService.map((serv) => {
               return (
                 <>
-                  <strong>
-                    {serv?.name} x {serv?.count}
-                  </strong>{" "}
-                  <br />
+                  <div className="d-flex justify-content-between  fw-bold p-2">
+                    <strong>
+                      {serv?.name} x {serv?.count}
+                    </strong>
+                    <strong>{serv?.pricePerAdult} USD</strong>
+                  </div>
                 </>
               );
             })}
-            <strong>Total: {total}</strong> <br />
+            <div className="d-flex justify-content-between  fw-bold p-2">
+              <strong>Total: {total}</strong>
+            </div>
             <div className="text-center mt-4">
               {/* <Link to="/booking"> */}
-                <button className="book" onClick={handleBookNow}>
-                  Book Now
-                </button>
+              <button className="book" onClick={handleBookNow}>
+                Book Now
+              </button>
               {/* </Link> */}
             </div>
           </div>
