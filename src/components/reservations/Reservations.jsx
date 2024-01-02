@@ -22,7 +22,6 @@ const Reservations = () => {
       .get("Reservation", {
         params: {
           userId:auth?.id,
-          // userId: 1,
           reservationStatus: view,
         },
       })
@@ -35,7 +34,7 @@ const Reservations = () => {
   };
   useEffect(() => {
     getReservationHandler();
-  }, [view]);
+  }, [view,auth?.id]);
   const handleViewChange = (selectedView) => {
     setView(selectedView);
   };
