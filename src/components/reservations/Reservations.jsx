@@ -21,8 +21,8 @@ const Reservations = () => {
     instance
       .get("Reservation", {
         params: {
-          // userId:auth?.id,
-          userId: 1,
+          userId:auth?.id,
+          // userId: 1,
           reservationStatus: view,
         },
       })

@@ -69,7 +69,7 @@ const PaymentMethod = () => {
         numberOfChild: book?.numberOfChild,
         numberOfAdults: book?.numberOfAdults,
         additionalServices: book?.additionalServices,
-        persons:"",
+        persons:[],
       })
       .then((res) => {
         console.log(res);

@@ -8,7 +8,9 @@ import { toast } from "react-toastify";
 import Rating from "react-rating";
 import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 import { BookContext } from "../context/BookContext";
-
+import adultimg from "./adults.png"
+import childrenimg from "./children.png"
+import babyimg from"./baby.png"
 const Reservation = () => {
   const { id } = useParams();
   const [program, setProgram] = useState();
@@ -27,7 +29,7 @@ const Reservation = () => {
     getProgramHandler();
   }, []);
   return (
-    <div>
+    <div className="border-top">
       {/* <div className="slider-text mt-5">
         <p className="slider-title ">Classic Program</p>
       </div>
@@ -67,20 +69,20 @@ const Reservation = () => {
 
         <div className="row mt-3">
           <div className="col-md-3  image-caption">
-            {/* <img src="adults.png" alt="Adults" className="img-fluid" /> */}
+            <img src={adultimg} alt="Adults" className="img-fluid" />
             <p className="caption">
-              Adults <br /> <strong className="text-dark">{program?.pricePerAdult}USD </strong>
+              Adults  <strong className="text-dark">{program?.pricePerAdult}USD </strong>
             </p>
           </div>
           <div className="col-md-3 mr-5  image-caption">
-            {/* <img src="children.png" alt="Children" className="img-fluid" /> */}
+            <img src={childrenimg} alt="Children" className="img-fluid" />
             <p className="caption text-dark">
               Children aged (4-12){" "}
               <strong className="text-dark"> {program?.pricePerChild}USD </strong>{" "}
             </p>
           </div>
           <div className="col-md-5  image-caption">
-            {/* <img src="baby.png" alt="Baby" className="img-fluid" /> */}
+            <img src={babyimg} alt="Baby" className="img-fluid" />
             <p className="caption">
               Children under 4 <br />{" "}
               <strong className="text-dark"> FREE </strong>

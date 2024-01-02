@@ -106,7 +106,7 @@ const Images = () => {
       />
 
       {/* Modal for displaying the clicked image */}
-      <Modal show={showModal} onHide={handleCloseModal}>
+      <Modal size="xl" show={showModal} onHide={handleCloseModal}>
         <Modal.Body>
           {selectedImage && (
             <img src={selectedImage?.photoUrl} alt={selectedImage?.type} className="modal-image" />
