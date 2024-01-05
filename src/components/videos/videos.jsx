@@ -6,7 +6,7 @@ import { instance } from "../../api/axios";
 const Videos = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [activePage, setActivePage] = useState(1);
-  const videosPerPage = 6;
+  const videosPerPage = 36;
   const [videos, setVideos] = useState([]);
   const getVideosHandler = () => {
     instance
@@ -29,23 +29,6 @@ const Videos = () => {
   const handlePageChange = (pageNumber) => {
     setActivePage(pageNumber);
   };
-  // const videos = [
-  //   { id: 1, type: 'panoramic', src: 'vid.mp4' },
-  //   { id: 2, type: 'panoramic', src: 'vid.mp4' },
-  //   { id: 3, type: 'panoramic', src: 'https://www.youtube.com/embed/83lPo2OjFII' },
-  //   { id: 4, type: 'panoramic', src: 'https://www.youtube.com/embed/ydZmXy7Pmg4' },
-  //   { id: 5, type: 'relax', src: 'video5.mp4' },
-  //   { id: 6, type: 'relax', src: 'video6.mp4' },
-  //   { id: 7, type: 'relax', src: 'https://www.youtube.com/embed/ydZmXy7Pmg4' },
-  //   { id: 8, type: 'joy', src: 'video8.mp4' },
-  //   { id: 9, type: 'joy', src: 'video9.mp4' },
-  //   { id: 11, type: 'joy', src: 'video10.mp4' },
-  //   { id: 12, type: 'dine', src: 'video11.mp4' },
-  //   { id: 13, type: 'dine', src: 'video12.mp4' },
-  //   { id: 14, type: 'dine', src: 'video13.mp4' },
-  //   { id: 15, type: 'dine', src: 'video14.mp4' },
-  // ];
-
   const filteredVideos =
     activeFilter === "All"
       ? videos

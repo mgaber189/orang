@@ -9,15 +9,14 @@ import { BookContext } from "../context/BookContext";
 export default function Programpage() {
   const auth = useContext(AuthContext);
   const [programs, setPrograms] = useState([]);
-  const book = useContext(BookContext)
-  console.log(book)
+  const book = useContext(BookContext);
   useEffect(() => {
-    if(book.bookingDate !== null){
+    if (book.bookingDate !== null) {
       instance
         .get("Programs", {
           params: {
             userId: auth?.userTypeId,
-            date:new Date(book.bookingDate).toISOString().split('T')[0]
+            date: new Date(book.bookingDate).toISOString().split("T")[0],
           },
         })
         .then((res) => {
@@ -27,8 +26,7 @@ export default function Programpage() {
         .catch((err) => {
           console.log(err);
         });
-
-    }else{
+    } else {
       instance
         .get("Programs", {
           params: {
@@ -54,8 +52,8 @@ export default function Programpage() {
         <img src="3.jpg" className="bbb" alt="" />
       </div>
       <div className="container mt-4 d-flex justify-content-evenly flex-wrap ">
-      {programs.map((program) => {
-        return (
+        {programs.map((program) => {
+          return (
             <div
               className="card border-0"
               style={{ width: "344px", height: "516px" }}>
@@ -98,8 +96,8 @@ export default function Programpage() {
                 </div>
               </Link>
             </div>
-        );
-      })}
+          );
+        })}
       </div>
     </div>
   );

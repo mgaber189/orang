@@ -59,19 +59,10 @@ const ImageGallery = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-  // const images = [
-  //   { id: 1, type: 'Restaurants', src: 'resturant1.png', title: 'Dolphin Resturant' , text: 'Dolphin Resturant is located on the ground floor to your right hand side once you enter the island. This restaurant consists of a buffet style dining experience. Our chefs using only the freshest ingredients Egypt has to offer a wide variety of dishes; from different types of meat, mixed vegetables, soups, stews, breads and salads. '},
-  //   { id: 2, type: 'Restaurants', src: 'resturant2.png', title: 'Turtle Resturant' , text: ' Pizza makes anything possible. People don’t normally come to Hurghada or the Red Sea in general looking for good pizzaPizza makes anything possible. People don’t normally come to Hurghada or the Red Sea in general looking for good pizzaPizza makes anything possible. People don’t normally come to Hurghada or the Red Sea in general looking for good .' },
-  //   { id: 4, type: 'Lounges', src: 'resturant4.png', title: ' Mermaid Lounge' ,text: 'Dolphin Resturant is located on the ground floor to your right hand side once you enter the island. This restaurant consists of a buffet style dining experience. Our chefs using only the freshest ingredients Egypt has to offer a wide variety of dishes; from different types of meat, mixed vegetables, soups, stews, breads and salads. '},
-  //   { id: 5, type: 'Bars', src: 'bar1.png', title: 'Swing Bar' ,text:'This particular watering hole is quite the unique experience and Orange Bays pride. Located further down on the island where the ambience is more quite and peacefully situated near to the sea. Instead of standard bar stools our craftsmen have designed swings where you can sip on your cocktails while swaying back and forth removing your stress and worries' },
-  //   { id: 6, type: 'Bars', src: 'bar2.png', title: 'Dolphin Bar ',text:'This particular watering hole is quite the unique experience and Orange Bays pride. Located further down on the island where the ambience is more quite and peacefully situated near to the sea. Instead of standard bar stools our craftsmen have designed swings where you can sip on your cocktails while swaying back and forth removing your stress and worries' },
-  // ];
-
   const filteredImages =
     activeFilter === "All"
       ? images
       : images.filter((image) => image.type === activeFilter);
-  // console.log(filteredImages)
   return (
     <div className="image-gallery">
       <div className="filter-bar">
@@ -128,7 +119,7 @@ const ImageGallery = () => {
               <Card.Body>
                 <Card.Title className="card-title-dining">
                   {" "}
-                  <h2> {image?.name}</h2>
+                  <h2 style={{width:"50%" , marginLeft:"42%",textAlign:"left"}}> {image?.name}</h2>
                   <span>
                     {" "}
                     {/* <div className="rating float-right rating-dining">

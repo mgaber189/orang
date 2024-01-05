@@ -10,7 +10,7 @@ const Images = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [images,setImages]=useState([])
-  const imagesPerPage = 6;
+  const imagesPerPage = 36;
   const getImagesHandler=()=>{
     instance.get('Gallery').then((res)=>{
       setImages(res?.data?.data)
