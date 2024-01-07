@@ -9,6 +9,7 @@ import pay2 from "./pay2.PNG"
 
 const PaymentMethod = () => {
   const [selectedMethod, setSelectedMethod] = useState("");
+  const token = localStorage.getItem("token")
   const book = useContext(BookContext);
   const [program, setProgram] = useState();
   const auth = useContext(AuthContext);
@@ -60,24 +61,34 @@ const PaymentMethod = () => {
   const handleMethodClick = (method) => {
     setSelectedMethod(method);
   };
+  console.log(token)
   const reservationHandler = () => {
     instance
-      .post("Reservation", {
+    .post(
+      "Reservation",
+      {
         userId: book?.userId,
         programId: book?.programId,
         bookingDate: book?.bookingDate,
         numberOfChild: book?.numberOfChild,
         numberOfAdults: book?.numberOfAdults,
         additionalServices: book?.additionalServices,
-        persons:[],
-      })
-      .then((res) => {
-        console.log(res);
-        navigate("/qrbook");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        persons: [],
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          // Add other headers if needed
+        },
+      }
+    )
+    .then((res) => {
+      console.log(res);
+      navigate("/qrbook");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
   return (
     <div>
