@@ -13,8 +13,6 @@ const defaultreducer={
 };
 const reducer = (state, action) => {
     if (action.type === "login") {
-      console.log(action?.data?.token);
-  
       // Use optional chaining to access nested properties
       return {
         isAuthed: action?.data?.isAuthed,

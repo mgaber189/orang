@@ -228,7 +228,6 @@ export default function Navbook() {
     // Simulate a click on the link to trigger the download
     link.click();
   };
-  console.log(reserService);
   return (
     <div className="container mt-3">
       <div className="row">

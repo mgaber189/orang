@@ -30,6 +30,7 @@ const MyProfile = () => {
       console.log(err)
     })
   }
+  console.log(wishlist)
   useEffect(()=>{
     getWishListHandler()
   },[])

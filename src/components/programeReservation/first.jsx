@@ -11,10 +11,12 @@ import { BookContext } from "../context/BookContext";
 import adultimg from "./adults.png"
 import childrenimg from "./children.png"
 import babyimg from"./baby.png"
+import { AuthContext } from "../context/AuthContext";
 const Reservation = () => {
   const { id } = useParams();
   const [program, setProgram] = useState();
   const book = useContext(BookContext)
+  const userId =useContext(AuthContext)
   const getProgramHandler = () => {
     instance
       .get(`Programs/${id}`)
@@ -25,6 +27,14 @@ const Reservation = () => {
         toast.warning("check your internet");
       });
   };
+  const addToWhish=()=>{
+    instance.post(`Wishlists?userId=${userId?.id}&programId=${id}`).then((res)=>{
+      toast.success("Program added")
+    }).catch((err)=>{
+      console.log(err)
+      toast.warning("There is some thing wrong")
+    })
+  }
   useEffect(() => {
     getProgramHandler();
   }, []);
@@ -51,20 +61,20 @@ const Reservation = () => {
             <Rating emptySymbol={<IoIosStarOutline  />} fullSymbol={<IoIosStar color="#F47732" />} initialRating={program?.} readonly />
           </div> */}
 
-          <div className="col-md-1  wish-watch">
+          <div onClick={()=>addToWhish()} className="col-md-1  wish-watch">
             <div className="circle">
               <i className="fa-sharp fa-solid fa-heart "></i>
             </div>{" "}
             <span className="caption">wishlist</span>{" "}
           </div>
-          <div className="col-md-1 wish-watch">
+          {/* <div className="col-md-1 wish-watch">
             <div className="circle">
               <Link to="/videos">
                 <i class="fa-solid fa-play"></i>{" "}
               </Link>{" "}
             </div>{" "}
             <span className="caption"> Video</span>{" "}
-          </div>
+          </div> */}
         </div>
 
         <div className="row mt-3">
